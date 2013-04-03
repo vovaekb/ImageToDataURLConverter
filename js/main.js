@@ -1,7 +1,16 @@
-/**
- * Created with JetBrains WebStorm.
- * User: vovaekb
- * Date: 03.04.13
- * Time: 16:24
- * To change this template use File | Settings | File Templates.
- */
+function fileSelectionCompleted(input) {
+    if(input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var imageURL = e.target.result;
+            document.getElementById("img1").src = imageURL;
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+function loadImage(){
+    document.getElementById("fileSelect").click();
+}
+
+
